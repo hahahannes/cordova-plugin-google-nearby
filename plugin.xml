@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="org.apache.cordova.nearby"
+        version="1.0.0">
+
+  <name>cordova-plugin-google-nearby</name>
+
+	<preference name="API_KEY" />
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/nearby.js" target="js/nearby.js"/>
+
+  <js-module src="www/nearby.js" name="nearby">
+    <clobbers target="nearby" />
+  </js-module>
+
+  <platform name="android">
+    <framework src="com.google.android.gms:play-services-nearby:11.6.0" />
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="NearbyPlugin">
+        <param name="android-package" value="org.apache.cordova.NearbyPlugin"/>
+      </feature>
+    </config-file>
+    
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <meta-data
+            android:name="com.google.android.nearby.messages.API_KEY"
+            android:value="$API_KEY" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.BLUETOOTH" />
+        <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    </config-file>
+
+    <source-file src="src/android/NearbyPlugin.java" target-dir="src/org/apache/nearby/"/>
+  </platform>
+</plugin>
