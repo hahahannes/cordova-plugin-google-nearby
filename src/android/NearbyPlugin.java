@@ -47,7 +47,6 @@ public class NearbyPlugin extends CordovaPlugin {
         }
     };
 
-
     @Override
     public boolean execute(String action, final String message, final CallbackContext callbackContext) throws JSONException {
         if (action.equals("subscribe")) {

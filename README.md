@@ -2,6 +2,12 @@
 This plugin adds support for the [Google Nearby Messages API](https://developers.google.com/nearby/messages/overview). Support for the other Nearby APIs will follow.
 
 # Installation
+## Requirements
+Please follow the Steps 1, 2 and 3 of the [Getting Started of Google](https://developers.google.com/nearby/messages/android/get-started), which are these one:
+- Install Google Play services with Android SDK Manager
+- Install Google Repository with Android SDK Manager
+- Activate the Google Nearby API in the Google Developer Console
+
 ## Automatically
 Cordova
 ```
@@ -22,36 +28,89 @@ The plugin provides three functions for subscription, publishing and unsubscribi
 
 ## Cordova
 ### Subscribe
-Default:
 ```
-window.nearby.subscribe()
+window.nearby.subscribe(function(success) {
+    console.log(success)
+}, function(error) {
+     console.log(error)
+})
 ```
 
-Default:
+### Publish
 ```
-var options = {
-    "strategy": "" 
-}
-window.nearby.subscribe(options)
+window.nearby.publish(message, function(success) {
+    console.log(success)
+}, function(error) {
+    console.log(error)
+})
+```
+
+### Unsubscribe
+```
+window.nearby.unsubscribe(function(success) {
+    console.log(success)
+}, function(error) {
+    console.log(error)
+})
 ```
 
 ## Ionic 
+- you can use [Ionic Native](https://ionicframework.com/docs/native/) 
+
+### Installtion
+
+```
+ionic cordova plugin add cordova-plugin-google-nearby
+npm install --save @ionic-native/google-nearby
+```
+
 ### Subscribe
 ```
-this.nearby.subscribe(options).then(result => {})
+import { google-nearby } from '@ionic-native/google-nearby';
+constructor(private nearby: google-nearby) { }
+this.nearby.subscribe().then(result => {
+    console.log(result)
+})
 ```
 
+### Unubscribe
+```
+import { google-nearby } from '@ionic-native/google-nearby';
+constructor(private nearby: google-nearby) { }
+this.nearby.unsubscribe().then(result => {
+    console.log(result)
+})
+```
+
+### Publish
+```
+import { google-nearby } from '@ionic-native/google-nearby';
+constructor(private nearby: google-nearby) { }
+this.nearby.publish(message).then(result => {
+    console.log(result)
+})
+```
 
 # Debug
+```shell
+adb logcat 
+```
 
 # Remove
+Cordova
 ```
 cordova plugin rm org.apache.cordova.nearby
+```
+
+Ionic
+```
+ionic cordova plugin rm org.apache.cordova.nearby
 ```
 
 # Troubleshooting Android
 - make sure that the following content is in the AndroidManifest.xml
 - make sure that the following content is in the build.gradle file
-- make sure you have installed the SDK
+- make sure you have the requirements from above
+- check in the nearby settings if your app is deactivated 
 
 

@@ -5,8 +5,6 @@
 
   <name>cordova-plugin-google-nearby</name>
 
-	<preference name="API_KEY" />
-
   <engines>
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
@@ -18,6 +16,7 @@
   </js-module>
 
   <platform name="android">
+    <preference name="API_KEY" />
     <framework src="com.google.android.gms:play-services-nearby:11.6.0" />
 
     <config-file target="res/xml/config.xml" parent="/*">
