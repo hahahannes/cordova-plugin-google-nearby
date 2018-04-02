@@ -1,12 +1,19 @@
-window.subscribe = function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "NearbyPlugin", "subscribe");
+var exec = require('cordova/exec');
+var nearby = {
+subscribe: function (successCallback, errorCallback) {
+        exec(successCallback, errorCallback, "NearbyPlugin", "subscribe");
     },
 
-window.unsubscribe = function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "NearbyPlugin", "unsubscribe");
+unsubscribe: function (successCallback, errorCallback) {
+        exec(successCallback, errorCallback, "NearbyPlugin", "unsubscribe");
     },
     
-window.publish = function(message, successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "NearbyPlugin", "publish", message);
+publish: function(message, successCallback, errorCallback) {
+        exec(successCallback, errorCallback, "NearbyPlugin", "publish", message);
     }
+}
+
+
+module.exports = nearby;
+
 
