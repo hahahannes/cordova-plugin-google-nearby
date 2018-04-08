@@ -67,19 +67,20 @@ npm install --save @ionic-native/google-nearby
 ### Subscribe
 ```
 import { GoogleNearby } from '@ionic-native/google-nearby';
-constructor(private nearby: GoogleNearby) { }
-this.nearby.subscribe().then(result => {
-    console.log(result)
-})
+subscribtion: any
+constructor(private nearby: GoogleNearby) { 
+    this.subscribtion = this.nearby.subscribe()
+    this.subscribtion.then(result => {
+        console.log(result)
+    })
+}
 ```
 
 ### Unubscribe
 ```
 import { GoogleNearby } from '@ionic-native/google-nearby';
 constructor(private nearby: GoogleNearby) { }
-this.nearby.unsubscribe().then(result => {
-    console.log(result)
-})
+this.subscribtion.unsubscribe()
 ```
 
 ### Publish
