@@ -1,3 +1,4 @@
+[![](https://img.shields.io/npm/dm/cordova-plugin-google-nearby.svg)](https://www.npmjs.com/package/cordova-plugin-google-nearby)
 # Description
 This plugin adds support for the [Google Nearby Messages API](https://developers.google.com/nearby/messages/overview). Support for the other Nearby APIs will follow.
 
