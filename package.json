@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-google-nearby",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "This plugin adds support for the [Google Nearby Messages API](https://developers.google.com/nearby/messages/overview). Support for the other Nearby APIs will follow.",
   "main": "index.js",
   "scripts": {

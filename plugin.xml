@@ -25,13 +25,13 @@
       </feature>
     </config-file>
     
-    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
       <meta-data
             android:name="com.google.android.nearby.messages.API_KEY"
             android:value="$API_KEY" />
     </config-file>
 
-    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
+    <config-file target="AndroidManifest.xml" parent="/manifest">
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
         <uses-permission android:name="android.permission.BLUETOOTH" />
