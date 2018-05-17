@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="org.apache.cordova.nearby"
+        id="cordova-plugin-google-nearby"
         version="1.0.0">
 
   <name>cordova-plugin-google-nearby</name>
