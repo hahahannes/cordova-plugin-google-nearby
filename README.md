@@ -70,8 +70,7 @@ npm install --save @ionic-native/google-nearby
 import { GoogleNearby } from '@ionic-native/google-nearby';
 subscribtion: any
 constructor(private nearby: GoogleNearby) { 
-    this.subscribtion = this.nearby.subscribe()
-    this.subscribtion.then(result => {
+    this.subscribtion = this.nearby.subscribe().subscribe(result => {
         console.log(result)
     })
 }
@@ -114,5 +113,8 @@ ionic cordova plugin rm org.apache.cordova.nearby
 - make sure that the following content is in the build.gradle file
 - make sure you have the requirements from above
 - check in the nearby settings if your app is deactivated 
+
+# Notes
+Currently there is a problem with installing this plugin and cordova version 7.
 
 
