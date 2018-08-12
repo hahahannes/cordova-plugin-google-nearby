@@ -1,7 +1,7 @@
 [![](https://img.shields.io/npm/dm/cordova-plugin-google-nearby.svg)](https://www.npmjs.com/package/cordova-plugin-google-nearby)
 # Description
 This plugin adds support for the [Google Nearby Messages API](https://developers.google.com/nearby/messages/overview). Support for the other Nearby APIs will follow.
-
+At the moment it works only for Android, but support for iOS will be done on the dev branch. 
 # Installation
 ## Requirements
 Please follow the Steps 1, 2 and 3 of the [Getting Started of Google](https://developers.google.com/nearby/messages/android/get-started), which are these one:
