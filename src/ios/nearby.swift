@@ -1,4 +1,18 @@
 @objc(ModusEchoSwift) class ModusEchoSwift : CDVPlugin {
+  func publish() {
+     let publication = messageManager.publication(with: GNSMessage(content: name.data(using: .utf8)))
+  }
+
+  func subscribe() {
+    let subscription =
+    messageManager.subscription(messageFoundHandler: { (message: GNSMessage?) in
+      // Add the name to a list for display
+    },
+    messageLostHandler: { (message: GNSMessage?) in
+      // Remove the name from the list
+    })
+  }
+
   @objc(echo:)
   func echo(command: CDVInvokedUrlCommand) {
     var pluginResult = CDVPluginResult(
