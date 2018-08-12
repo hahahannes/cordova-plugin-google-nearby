@@ -15,6 +15,15 @@
     <clobbers target="nearby" />
   </js-module>
 
+<platform name="ios">
+  <config-file target="config.xml" parent="/*">
+    <feature name="ModusEchoSwift">
+      <param name="ios-package" value="GoogleNearby" />
+    </feature>
+  </config-file>
+  <source-file src="src/ios/nearby.swift" />
+</platform>
+
   <platform name="android">
     <preference name="API_KEY" />
     <framework src="com.google.android.gms:play-services-nearby:11.6.0" />
