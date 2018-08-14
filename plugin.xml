@@ -28,7 +28,7 @@
     <preference name="API_KEY" />
     <framework src="com.google.android.gms:play-services-nearby:11.6.0" />
 
-    <config-file target="res/xml/config.xml" parent="/*">
+    <config-file target="app/src/main/res/xml/config.xml" parent="/*">
       <feature name="NearbyPlugin">
         <param name="android-package" value="org.apache.cordova.NearbyPlugin"/>
       </feature>
