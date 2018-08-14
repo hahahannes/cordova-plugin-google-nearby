@@ -115,6 +115,4 @@ ionic cordova plugin rm org.apache.cordova.nearby
 - check in the nearby settings if your app is deactivated 
 
 # Notes
-Currently there is a problem with installing this plugin and cordova version 7.
-
-
+For cordova-android v7 and above use version 1.1.5 of this plugin.
