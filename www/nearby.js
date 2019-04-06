@@ -13,7 +13,7 @@ publish: function(message, successCallback, errorCallback) {
     },
 
 unpublish: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "NearbyPlugin", "unpublish", message);
+        exec(successCallback, errorCallback, "NearbyPlugin", "unpublish");
     }
 };
 
