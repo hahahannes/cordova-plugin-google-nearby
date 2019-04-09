@@ -45,6 +45,14 @@ window.nearby.publish(message, function(success) {
     console.log(error)
 })
 ```
+### Un-Publish
+```
+window.nearby.unpublish(message, function(success) {
+    console.log(success)
+}, function(error) {
+    console.log(error)
+})
+```
 
 ### Unsubscribe
 ```
@@ -88,6 +96,14 @@ this.subscribtion.unsubscribe()
 import { GoogleNearby } from '@ionic-native/google-nearby';
 constructor(private nearby: GoogleNearby) { }
 this.nearby.publish(message).then(result => {
+    console.log(result)
+})
+```
+### Un-Publish
+```
+import { GoogleNearby } from '@ionic-native/google-nearby';
+constructor(private nearby: GoogleNearby) { }
+this.nearby.unpublish(message).then(result => {
     console.log(result)
 })
 ```
