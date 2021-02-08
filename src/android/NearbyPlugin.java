@@ -24,7 +24,11 @@ public class NearbyPlugin extends CordovaPlugin {
     private static CallbackContext publish_callback;
     private static CallbackContext subscribe_callback;
     private static CallbackContext unsubscribe_callback;
+    private static CallbackContext unpublish_callback;
     private static final int REQUEST_RESOLVE_ERROR = 1001;
+
+    private static Message mActiveMessage = null;
+
     MessageListener mMessageListener = new MessageListener() {
         @Override
         public void onFound(Message message) {
@@ -64,6 +68,10 @@ public class NearbyPlugin extends CordovaPlugin {
             this.publish_callback = callbackContext;
             this.publish(message);
             return true;
+        } else if (action.equals("unpublish")) {
+            this.unpublish_callback = callbackContext;
+            this.unpublish();
+            return true;
         } else {
             return false;
         }
@@ -91,8 +99,8 @@ public class NearbyPlugin extends CordovaPlugin {
             }
         };        
         PublishOptions options = new PublishOptions.Builder().setCallback(callback).build();
-        Message mActiveMessage = new Message(message.getBytes());
-        Nearby.getMessagesClient(cordova.getActivity()).publish(mActiveMessage, options).addOnFailureListener(this.failListener);
+        this.mActiveMessage = new Message(message.getBytes());
+        Nearby.getMessagesClient(cordova.getActivity()).publish(this.mActiveMessage, options).addOnFailureListener(this.failListener);
         Log.d(TAG, "published message: " + message);
         this.publish_callback.success("published message");
     }
@@ -101,5 +109,15 @@ public class NearbyPlugin extends CordovaPlugin {
         Nearby.getMessagesClient(cordova.getActivity()).unsubscribe(this.mMessageListener);
         Log.d(TAG, "unsubscribed");
         this.unsubscribe_callback.success("unsubscribed");
+    }
+    private void unpublish() {
+        if (this.mActiveMessage != null) {
+            Nearby.getMessagesClient(cordova.getActivity()).unpublish(this.mActiveMessage);
+            Log.d(TAG, "unpublished");
+            this.unpublish_callback.success("unpublished message");
+            this.mActiveMessage = null;
+        } else {
+            this.unpublish_callback.success("nothing to unpublish");
+        }
     }
 }

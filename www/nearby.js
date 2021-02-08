@@ -10,9 +10,12 @@ unsubscribe: function (successCallback, errorCallback) {
     
 publish: function(message, successCallback, errorCallback) {
         exec(successCallback, errorCallback, "NearbyPlugin", "publish", message);
-    }
-}
+    },
 
+unpublish: function(successCallback, errorCallback) {
+        exec(successCallback, errorCallback, "NearbyPlugin", "unpublish");
+    }
+};
 
 module.exports = nearby;
 
